@@ -1,8 +1,12 @@
 using UnityEngine;
 using System.Collections;
+using System.Linq;
+using UnityEngine.Serialization;
+
 
 public class Character : MonoBehaviour
 {
+    
     [SerializeField]
     private int lives = 5;
 
@@ -20,9 +24,8 @@ public class Character : MonoBehaviour
     [SerializeField]
     private float speed = 3.0F;
     [SerializeField]
-    private float jumpForce = 15.0F;
-
-    private bool isGrounded = false;
+    private float jumpForce = 15F;
+    private bool isGrounded;
 
     //private Bullet bullet;
 
@@ -62,9 +65,11 @@ public class Character : MonoBehaviour
 
     private void Run()
     {
-        Vector3 direction = transform.right * Input.GetAxis("Horizontal");
+        var direction = transform.right * Input.GetAxis("Horizontal");
 
-        transform.position = Vector3.MoveTowards(transform.position, transform.position + direction, speed * Time.deltaTime);
+        var position = transform.position;
+        position = Vector3.MoveTowards(position, position + direction, speed * Time.deltaTime);
+        transform.position = position;
 
         sprite.flipX = direction.x > 0.0F;
 
@@ -97,9 +102,18 @@ public class Character : MonoBehaviour
 
     private void CheckGround()
     {
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 0.3F);
-
-        isGrounded = colliders.Length > 1;
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, 1f);
+        foreach (var collider in colliders)
+        {
+            if (collider.gameObject.CompareTag("CanJump"))
+            {
+                isGrounded = true;
+                break;
+            }
+            isGrounded = false;
+            
+        }
+        //isGrounded = colliders.Length > 1;
 
         //if (!isGrounded) State = CharState.Jump;
     }
