@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="139be182-fa6d-46bd-9980-41ae06ac408f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/Assets/Chilipizdrik.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Chilipizdrik/chell.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Chilipizdrik/chell.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Chilipizdrik/chell_10.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Chilipizdrik/chell_10.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Ground.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Ground.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/script/Character.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/script/Character.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/фон.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/фон/1500x500.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/фон/1500x500.jpg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/фон/1500x500.prefab" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/фон/1500x500.prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/InputManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/InputManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1sOEsOWCtkbHN4ZCVfMNxMO4mJJ" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="last_opened_file_path" value="$USER_HOME$" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+</project>
