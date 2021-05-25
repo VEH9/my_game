@@ -29,11 +29,11 @@ public class Character : MonoBehaviour
 
     //private Bullet bullet;
 
-    //private CharState State
-    //{
-    //    get { return (CharState)animator.GetInteger("State"); }
-    //    set { animator.SetInteger("State", (int)value); }
-    //}
+    private CharState State
+    {
+        get { return (CharState)animator.GetInteger("State"); }
+        set { animator.SetInteger("State", (int)value); }
+    }
 
     new private Rigidbody2D rigidbody;
     private Animator animator;
@@ -56,7 +56,7 @@ public class Character : MonoBehaviour
 
     private void Update()
     {
-        //if (isGrounded) State = CharState.Idle;
+        if (isGrounded) State = CharState.Idle;
 
         //if (Input.GetButtonDown("Fire1")) Shoot();
         if (Input.GetButton("Horizontal")) Run();
@@ -70,10 +70,9 @@ public class Character : MonoBehaviour
         var position = transform.position;
         position = Vector3.MoveTowards(position, position + direction, speed * Time.deltaTime);
         transform.position = position;
-
         sprite.flipX = direction.x > 0.0F;
 
-        //if (isGrounded) State = CharState.Run;
+        if (isGrounded) State = CharState.Run;
     }
 
     private void Jump()
@@ -130,9 +129,8 @@ public class Character : MonoBehaviour
 }
 
 
-//public enum CharState
-//{
-//    Idle,
-//    Run,
-//    Jump
-//}
+    public enum CharState
+    {
+        Idle,
+        Run
+    }
