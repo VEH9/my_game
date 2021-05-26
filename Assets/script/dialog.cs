@@ -6,6 +6,7 @@ using  TMPro;
 
 public class dialog : MonoBehaviour
 {
+    private bool canSkip = false;
     public MonoBehaviour Player;
 
     [SerializeField] TextMeshProUGUI text;
@@ -25,8 +26,9 @@ public class dialog : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!(Player.transform.position.x < -20)) return;
-        if (Input.GetMouseButtonDown(0))
+        if (!(Player.transform.position.x < -20)) canSkip = true;
+        
+        if (Input.GetMouseButtonDown(0) && canSkip)
         {
             if (text.text == lines[index])
             {
