@@ -20,7 +20,7 @@ public class Ladar : MonoBehaviour
             }
             else
             {
-                other.GetComponent<Rigidbode2D>().velocity = new Vector2(0, 0);
+                
             }
         }
     }
