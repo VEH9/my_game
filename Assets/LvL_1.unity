@@ -613,6 +613,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5eb984c091f29004fa1e3352654dee41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  vector: {x: -16.93, y: -0.38}
+  text: {fileID: 1164992104}
 --- !u!61 &737256377
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1908,7 +1910,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -17.55, y: -6.13}
+  m_AnchoredPosition: {x: -17.43, y: -6.17}
   m_SizeDelta: {x: 9.2514, y: 4.8327}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1220302462 stripped
