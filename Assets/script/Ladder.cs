@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ladar : MonoBehaviour
+public class Ladder : MonoBehaviour
 {
     [SerializeField]
     float speed = 5;
@@ -20,7 +20,7 @@ public class Ladar : MonoBehaviour
             }
             else
             {
-                
+
             }
         }
     }
