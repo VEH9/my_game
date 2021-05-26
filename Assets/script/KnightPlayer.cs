@@ -128,9 +128,9 @@ public class KnightPlayer  : MonoBehaviour
 
 public enum CharStateKnight
 {
-    Idle,
-    Run,
-    Jump,
-    Attack,
-    Fall
+    Idle = 0,
+    Run = 1,
+    Jump = 2,
+    Attack = 4,
+    Fall = 3
 }
