@@ -1,10 +1,8 @@
-using UnityEngine;
 using System.Collections;
-using System.Linq;
-using UnityEngine.Serialization;
+using System.Collections.Generic;
+using UnityEngine;
 
-
-public class Knight : MonoBehaviour
+public class KnightPlayer  : MonoBehaviour
 {
     [SerializeField]
     private int lives = 5;
@@ -28,9 +26,9 @@ public class Knight : MonoBehaviour
 
     //private Bullet bullet;
 
-    private CharState State
+    private CharStateKnight State
     {
-        get { return (CharState)animator.GetInteger("State"); }
+        get { return (CharStateKnight)animator.GetInteger("State"); }
         set { animator.SetInteger("State", (int)value); }
     }
 
@@ -55,7 +53,7 @@ public class Knight : MonoBehaviour
 
     private void Update()
     {
-        if (isGrounded) State = CharState.Idle;
+        if (isGrounded) State = CharStateKnight.Idle;
 
         //if (Input.GetButtonDown("Fire1")) Shoot();
         if (Input.GetButton("Horizontal")) Run();
@@ -71,7 +69,7 @@ public class Knight : MonoBehaviour
         transform.position = position;
         sprite.flipX = direction.x > 0.0F;
 
-        if (isGrounded) State = CharState.Run;
+        if (isGrounded) State = CharStateKnight.Run;
     }
 
     private void Jump()
@@ -128,8 +126,11 @@ public class Knight : MonoBehaviour
 }
 
 
-    public enum CharState1
-    {
-        Idle,
-        Run
-    }
+public enum CharStateKnight
+{
+    Idle,
+    Run,
+    Jump,
+    Attack,
+    Fall
+}
