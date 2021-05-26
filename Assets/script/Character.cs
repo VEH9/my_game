@@ -6,7 +6,6 @@ using UnityEngine.Serialization;
 
 public class Character : MonoBehaviour
 {
-    
     [SerializeField]
     private int lives = 5;
 
