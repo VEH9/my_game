@@ -77,7 +77,7 @@ public class KnightPlayer  : MonoBehaviour
         rigidbody.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
     }
 
-    //private void Shoot()
+    //private void Attack()
     //{
     //    Vector3 position = transform.position; position.y += 0.8F;
     //    Bullet newBullet = Instantiate(bullet, position, bullet.transform.rotation) as Bullet;
@@ -111,7 +111,7 @@ public class KnightPlayer  : MonoBehaviour
         }
         //isGrounded = colliders.Length > 1;
 
-        //if (!isGrounded) State = CharState.Jump;
+        if (!isGrounded) State = CharStateKnight.Jump;
     }
 
     //    private void OnTriggerEnter2D(Collider2D collider)

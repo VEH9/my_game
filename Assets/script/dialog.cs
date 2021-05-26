@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using  TMPro;
+using UnityEngine.SceneManagement;
 
 
 public class dialog : MonoBehaviour
@@ -16,14 +17,13 @@ public class dialog : MonoBehaviour
     [SerializeField] private float TextSpeed;
 
     private int index;
-    // Start is called before the first frame update
+
     void Start()
     {
         text.text = string.Empty;
         StartDialog();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (!(Player.transform.position.x < -20)) canSkip = true;
@@ -67,7 +67,9 @@ public class dialog : MonoBehaviour
         }
         else
         {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             gameObject.SetActive(false);
+            
         }
     }
 }
