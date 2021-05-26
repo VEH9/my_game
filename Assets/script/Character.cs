@@ -6,8 +6,8 @@ using UnityEngine.Serialization;
 
 public class Character : MonoBehaviour
 {
-    [SerializeField]
-    private int lives = 5;
+    //[SerializeField]
+    //private int lives = 5;
 
     //public int Livesx 
     //{
