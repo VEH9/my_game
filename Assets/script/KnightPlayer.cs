@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 
 public class KnightPlayer  : MonoBehaviour
@@ -53,11 +55,39 @@ public class KnightPlayer  : MonoBehaviour
 
     private void Update()
     {
-        if (isGrounded) State = CharStateKnight.Idle;
+        if (isGrounded && !attack) State = CharStateKnight.Idle;
 
         //if (Input.GetButtonDown("Fire1")) Shoot();
         if (Input.GetButton("Horizontal")) Run();
         if (isGrounded && Input.GetButtonDown("Jump")) Jump();
+        if (timeBtwAttack <= 0)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                attack = true;
+                State = CharStateKnight.Attack;
+                Collider2D[] enimies = Physics2D.OverlapCircleAll(attackPos.position, attackRange, enemy);
+                foreach (var enimy in enimies)
+                {
+                    enimy.GetComponent<Enemy>().TakeDamage(damage);
+                }
+
+            }
+
+            timeBtwAttack = startTimeBtwAttack;
+        }
+        else
+        {
+            timeBtwAttack -= Time.deltaTime;
+        }
+
+        attack = false;
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(attackPos.position, attackRange);
     }
 
     private void Run()
@@ -69,7 +99,7 @@ public class KnightPlayer  : MonoBehaviour
         transform.position = position;
         sprite.flipX = direction.x > 0.0F;
 
-        if (isGrounded) State = CharStateKnight.Run;
+        if (isGrounded && !attack) State = CharStateKnight.Run;
     }
 
     private void Jump()
@@ -77,6 +107,18 @@ public class KnightPlayer  : MonoBehaviour
         rigidbody.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
     }
 
+    private bool attack = false;
+    private float timeBtwAttack;
+
+    public float startTimeBtwAttack;
+
+    public Transform attackPos;
+
+    public float attackRange;
+
+    public int damage;
+    public LayerMask enemy;
+    
     //private void Attack()
     //{
     //    Vector3 position = transform.position; position.y += 0.8F;
@@ -111,7 +153,7 @@ public class KnightPlayer  : MonoBehaviour
         }
         //isGrounded = colliders.Length > 1;
 
-        if (!isGrounded) State = CharStateKnight.Jump;
+        if (!isGrounded && !attack) State = CharStateKnight.Jump;
     }
 
     //    private void OnTriggerEnter2D(Collider2D collider)
@@ -123,6 +165,7 @@ public class KnightPlayer  : MonoBehaviour
     //            ReceiveDamage();
     //        }
     //    }
+    
 }
 
 
