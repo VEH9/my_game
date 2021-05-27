@@ -14,14 +14,14 @@ public class Ladder : MonoBehaviour
             {
                 other.GetComponent<Rigidbody2D>().velocity = new Vector2(0, speed);
             }
-            else if (Input.GetKey(KeyCode.S))
-            {
-                other.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -speed);
-            }
-            else
-            {
-
-            }
+        }
+        else if (Input.GetKey(KeyCode.S))
+        {
+            other.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -speed);
+        }
+        else
+        {
+            other.GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
         }
     }
 }
