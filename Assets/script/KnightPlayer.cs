@@ -55,33 +55,14 @@ public class KnightPlayer  : MonoBehaviour
 
     private void Update()
     {
-        if (isGrounded && !attack) State = CharStateKnight.Idle;
+        if (isGrounded) State = CharStateKnight.Idle;
 
         //if (Input.GetButtonDown("Fire1")) Shoot();
         if (Input.GetButton("Horizontal")) Run();
         if (isGrounded && Input.GetButtonDown("Jump")) Jump();
-        if (timeBtwAttack <= 0)
-        {
-            if (Input.GetMouseButtonDown(0))
-            {
-                attack = true;
-                State = CharStateKnight.Attack;
-                Collider2D[] enimies = Physics2D.OverlapCircleAll(attackPos.position, attackRange, enemy);
-                foreach (var enimy in enimies)
-                {
-                    enimy.GetComponent<Enemy>().TakeDamage(damage);
-                }
-
-            }
-
-            timeBtwAttack = startTimeBtwAttack;
-        }
-        else
-        {
-            timeBtwAttack -= Time.deltaTime;
-        }
-
-        attack = false;
+        if (timeBtwAttack <= 0 && Input.GetMouseButtonDown(0)) Attack();
+        else timeBtwAttack -= Time.deltaTime;
+        
     }
 
     private void OnDrawGizmosSelected()
@@ -99,7 +80,7 @@ public class KnightPlayer  : MonoBehaviour
         transform.position = position;
         sprite.flipX = direction.x > 0.0F;
 
-        if (isGrounded && !attack) State = CharStateKnight.Run;
+        if (isGrounded) State = CharStateKnight.Run;
     }
 
     private void Jump()
@@ -107,7 +88,6 @@ public class KnightPlayer  : MonoBehaviour
         rigidbody.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
     }
 
-    private bool attack = false;
     private float timeBtwAttack;
 
     public float startTimeBtwAttack;
@@ -119,24 +99,16 @@ public class KnightPlayer  : MonoBehaviour
     public int damage;
     public LayerMask enemy;
     
-    //private void Attack()
-    //{
-    //    Vector3 position = transform.position; position.y += 0.8F;
-    //    Bullet newBullet = Instantiate(bullet, position, bullet.transform.rotation) as Bullet;
-
-    //    newBullet.Parent = gameObject;
-    //    newBullet.Direction = newBullet.transform.right * (sprite.flipX ? -1.0F : 1.0F);
-    //}
-
-    //public override void ReceiveDamage()
-    //{
-    //    Lives--;
-
-    //    rigidbody.velocity = Vector3.zero;
-    //    rigidbody.AddForce(transform.up * 8.0F, ForceMode2D.Impulse);
-
-    //    Debug.Log(lives);
-    //}
+    private void Attack()
+    {
+        State = CharStateKnight.Attack;
+        Collider2D[] enimies = Physics2D.OverlapCircleAll(attackPos.position, attackRange, enemy);
+        foreach (var enimy in enimies)
+        {
+            enimy.GetComponent<Enemy>().TakeDamage(damage);
+        }
+        timeBtwAttack = startTimeBtwAttack;
+    }
 
     private void CheckGround()
     {
@@ -153,7 +125,7 @@ public class KnightPlayer  : MonoBehaviour
         }
         //isGrounded = colliders.Length > 1;
 
-        if (!isGrounded && !attack) State = CharStateKnight.Jump;
+        if (!isGrounded) State = CharStateKnight.Jump;
     }
 
     //    private void OnTriggerEnter2D(Collider2D collider)
