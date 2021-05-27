@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4030152892586595207}
   - component: {fileID: 4030152892586595206}
-  - component: {fileID: 4030152892586595205}
   - component: {fileID: 4030152892586595208}
   - component: {fileID: 4030152892586595209}
   m_Layer: 0
@@ -50,32 +49,6 @@ MonoBehaviour:
   lives: 5
   speed: 3
   jumpForce: 15
---- !u!61 &4030152892586595205
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4030152892586595204}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.03}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.72, y: 0.94}
-  m_EdgeRadius: 0
 --- !u!50 &4030152892586595208
 Rigidbody2D:
   serializedVersion: 4
