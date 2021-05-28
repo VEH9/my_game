@@ -60,6 +60,7 @@ public class KnightPlayer  : Unit
 
     private void Update()
     {
+        //if (lives <= 0 ) 
         if (isGrounded) State = CharStateKnight.Idle;
 
         //if (Input.GetButtonDown("Fire1")) Shoot();
