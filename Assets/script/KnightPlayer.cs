@@ -26,7 +26,7 @@ public class KnightPlayer  : Unit
     private float jumpForce = 15F;
     private bool isGrounded;
 
-    private Bullet bullet;
+    //private Bullet bullet;
 
     private CharStateKnight State
     {
@@ -50,7 +50,7 @@ public class KnightPlayer  : Unit
         animator = GetComponent<Animator>();
         sprite = GetComponentInChildren<SpriteRenderer>();
 
-        bullet = Resources.Load<Bullet>("Bullet");
+        //bullet = Resources.Load<Bullet>("Bullet");
     }
 
     private void FixedUpdate()

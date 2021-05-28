@@ -16,11 +16,11 @@ public class Monster : Unit
             ReceiveDamage();
         }
 
-        KnightPlayer character = collider.GetComponent<KnightPlayer>();
+        //KnightPlayer character = collider.GetComponent<KnightPlayer>();
 
-        if (character)
-        {
-            character.ReceiveDamage();
-        }
+        //if (character)
+        //{
+        //    character.ReceiveDamage();
+        //}
     }
 }
