@@ -7,7 +7,7 @@ using UnityEngine;
 public class KnightPlayer  : Unit
 {
     [SerializeField]
-    private int lives = 5;
+    private int lives;
 
     public int Lives
     {
@@ -148,9 +148,13 @@ public class KnightPlayer  : Unit
         rigidbody.velocity = Vector3.zero;
         rigidbody.AddForce(transform.up * 8.0F, ForceMode2D.Impulse);
 
-        Debug.Log(lives);
     }
-
+    public void TakeDamage()
+    {
+        Lives --;
+        rigidbody.velocity = Vector3.zero;
+        rigidbody.AddForce(transform.up * 8.0F, ForceMode2D.Impulse);
+    }
     private void OnTriggerEnter2D(Collider2D collider)
     {
 
