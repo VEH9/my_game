@@ -17,7 +17,7 @@ public class MoveableMonster : Monster
     protected override void Awake()
     {
         sprite = GetComponentInChildren<SpriteRenderer>();
-        bullet = Resources.Load<Bullet>("Assets/Bullet");
+        bullet = Resources.Load<Bullet>("Assets/Scenes/Bullet");
     }
     
     private void Shoot()
