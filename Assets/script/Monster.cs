@@ -16,7 +16,7 @@ public class Monster : Unit
             ReceiveDamage();
         }
 
-        Character character = collider.GetComponent<Character>();
+        KnightPlayer character = collider.GetComponent<KnightPlayer>();
 
         if (character)
         {
