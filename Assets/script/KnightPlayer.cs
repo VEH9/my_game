@@ -34,6 +34,11 @@ public class KnightPlayer  : MonoBehaviour
         set { animator.SetInteger("State", (int)value); }
     }
 
+    private void Start()
+    {
+        attackPos = attackPosLeft;
+    }
+
     new private Rigidbody2D rigidbody;
     private Animator animator;
     private SpriteRenderer sprite;
@@ -60,15 +65,19 @@ public class KnightPlayer  : MonoBehaviour
         //if (Input.GetButtonDown("Fire1")) Shoot();
         if (Input.GetButton("Horizontal")) Run();
         if (isGrounded && Input.GetButtonDown("Jump")) Jump();
-        if (timeBtwAttack <= 0 && Input.GetMouseButtonDown(0)) Attack();
+        if (timeBtwAttack <= 0 && Input.GetMouseButtonDown(0))
+        {
+            State = CharStateKnight.Attack;
+        }
         else timeBtwAttack -= Time.deltaTime;
-        
+        if (sprite.flipX) attackPos = attackPosRigrh;
+        else attackPos = attackPosLeft;
     }
 
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(attackPos.position, attackRange);
+        Gizmos.DrawWireSphere(attackPosLeft.position, attackRange);
     }
 
     private void Run()
@@ -92,16 +101,20 @@ public class KnightPlayer  : MonoBehaviour
 
     public float startTimeBtwAttack;
 
-    public Transform attackPos;
-
+    [SerializeField]
+    public Transform attackPosLeft;
+    [SerializeField]
+    public Transform attackPosRigrh;
+    
+    private Transform attackPos;
     public float attackRange;
 
     public int damage;
+    
     public LayerMask enemy;
     
     private void Attack()
     {
-        State = CharStateKnight.Attack;
         Collider2D[] enimies = Physics2D.OverlapCircleAll(attackPos.position, attackRange, enemy);
         foreach (var enimy in enimies)
         {
