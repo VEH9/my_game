@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using JetBrains.Annotations;
 using UnityEngine;
 
-public class KnightPlayer  : MonoBehaviour
+public class KnightPlayer  : Unit
 {
     [SerializeField]
     private int lives = 5;
@@ -26,7 +26,7 @@ public class KnightPlayer  : MonoBehaviour
     private float jumpForce = 15F;
     private bool isGrounded;
 
-    //private Bullet bullet;
+    private Bullet bullet;
 
     private CharStateKnight State
     {
@@ -50,7 +50,7 @@ public class KnightPlayer  : MonoBehaviour
         animator = GetComponent<Animator>();
         sprite = GetComponentInChildren<SpriteRenderer>();
 
-        //bullet = Resources.Load<Bullet>("Bullet");
+        bullet = Resources.Load<Bullet>("Bullet");
     }
 
     private void FixedUpdate()
@@ -141,23 +141,25 @@ public class KnightPlayer  : MonoBehaviour
         if (!isGrounded) State = CharStateKnight.Jump;
     }
 
-    public void ReciveDamage()
+    public override void ReceiveDamage()
     {
         Lives--;
 
         rigidbody.velocity = Vector3.zero;
         rigidbody.AddForce(transform.up * 8.0F, ForceMode2D.Impulse);
+
+        Debug.Log(lives);
     }
 
-    //    private void OnTriggerEnter2D(Collider2D collider)
-    //    {
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
 
-    //        Bullet bullet = collider.gameObject.GetComponent<Bullet>();
-    //        if (bullet && bullet.Parent != gameObject)
-    //        {
-    //            ReceiveDamage();
-    //        }
-    //    }
+        Bullet bullet = collider.gameObject.GetComponent<Bullet>();
+        if (bullet && bullet.Parent != gameObject)
+        {
+            ReceiveDamage();
+        }
+    }
     
 }
 
