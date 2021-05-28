@@ -9,16 +9,16 @@ public class KnightPlayer  : MonoBehaviour
     [SerializeField]
     private int lives = 5;
 
-    //public int Livesx 
-    //{
-    //    get { return lives; }
-    //    set
-    //    {
-    //       if (value < 5) lives = value;
-    //        livesBar.Refresh();
-    //    }
-    //}
-    //private LivesBar livesBar;
+    public int Lives
+    {
+        get { return lives; }
+        set
+       {
+           if (value < 5) lives = value;
+            livesBar.Refresh();
+        }
+    }
+    private LivesBar livesBar;
 
     [SerializeField]
     private float speed = 3.0F;
@@ -45,7 +45,7 @@ public class KnightPlayer  : MonoBehaviour
 
     private void Awake()
     {
-        //livesBar = FindObjectOfType<LivesBar>();
+        livesBar = FindObjectOfType<LivesBar>();
         rigidbody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         sprite = GetComponentInChildren<SpriteRenderer>();
@@ -139,6 +139,14 @@ public class KnightPlayer  : MonoBehaviour
         //isGrounded = colliders.Length > 1;
 
         if (!isGrounded) State = CharStateKnight.Jump;
+    }
+
+    public void ReciveDamage()
+    {
+        Lives--;
+
+        rigidbody.velocity = Vector3.zero;
+        rigidbody.AddForce(transform.up * 8.0F, ForceMode2D.Impulse);
     }
 
     //    private void OnTriggerEnter2D(Collider2D collider)

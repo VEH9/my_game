@@ -213,9 +213,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7703690351560783403, guid: 6f1ff1e5008dba6459fff515f8407778, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7703690351714258697, guid: 6f1ff1e5008dba6459fff515f8407778, type: 3}
       propertyPath: m_Name
       value: chell
+      objectReference: {fileID: 0}
+    - target: {fileID: 7703690351714258697, guid: 6f1ff1e5008dba6459fff515f8407778, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 7703690351714258698, guid: 6f1ff1e5008dba6459fff515f8407778, type: 3}
       propertyPath: m_RootOrder
@@ -1046,7 +1054,7 @@ GameObject:
   - component: {fileID: 941101075}
   - component: {fileID: 941101074}
   - component: {fileID: 941101073}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: book
   m_TagString: Untagged
   m_Icon: {fileID: 0}
